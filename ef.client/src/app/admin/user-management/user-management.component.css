@@ -1,0 +1,23 @@
+.table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.875rem;
+  padding: 0.5em 0.75em;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-primary i {
+  font-size: 1rem;
+} 

@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:56408",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "C:\\Users\\yunus\\source\\repos\\EF\\EF.Server\\..\\ef.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

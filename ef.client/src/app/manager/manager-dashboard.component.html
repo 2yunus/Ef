@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2>Feedback Dashboard</h2>
+
+  <div *ngIf="isLoading" class="text-center">
+    <p>Loading feedbacks...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div *ngIf="feedbacks.length === 0" class="alert alert-info">
+      No feedbacks found.
+    </div>
+
+    <div *ngIf="feedbacks.length > 0" class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Sentiment</th>
+            <th>Content</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of feedbacks">
+            <td>{{ feedback.createdAt | date:'medium' }}</td>
+            <td>{{ feedback.category }}</td>
+            <td>
+              <span [ngClass]="{
+                'badge bg-success': feedback.sentiment === 'Positive',
+                'badge bg-warning': feedback.sentiment === 'Neutral',
+                'badge bg-danger': feedback.sentiment === 'Negative'
+              }">
+                {{ feedback.sentiment }}
+              </span>
+            </td>
+            <td>{{ feedback.content }}</td>
+            <td>{{ feedback.user?.username || 'Anonymous' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 

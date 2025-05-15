@@ -1,0 +1,36 @@
+.admin-dashboard {
+  padding: 20px;
+}
+
+.analytics {
+  margin-bottom: 20px;
+}
+
+.user-management table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.user-management th,
+.user-management td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-management th {
+  background-color: #f4f4f4;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

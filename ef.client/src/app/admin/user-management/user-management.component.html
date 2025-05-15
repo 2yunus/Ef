@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">User Management</h5>
+      <button class="btn btn-primary" (click)="exportToCsv()">
+        <i class="bi bi-download me-2"></i>Export to CSV
+      </button>
+    </div>
+    <div class="card-body">
+      <div *ngIf="isLoading" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+
+      <div *ngIf="!isLoading && !error">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                  <span class="badge" [ngClass]="{
+                    'bg-primary': user.role === 'Admin',
+                    'bg-success': user.role === 'Manager',
+                    'bg-info': user.role === 'User'
+                  }">
+                    {{ user.role }}
+                  </span>
+                </td>
+                <td>{{ user.createdAt | date:'medium' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
